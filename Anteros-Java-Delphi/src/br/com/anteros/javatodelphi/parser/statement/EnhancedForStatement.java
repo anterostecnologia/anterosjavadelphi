@@ -1,0 +1,53 @@
+/*******************************************************************************
+ * Copyright 2012 Anteros Tecnologia
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
+package br.com.anteros.javatodelphi.parser.statement;
+
+public class EnhancedForStatement extends Statement {
+
+	protected String paramName;
+	protected String expression;
+
+	public EnhancedForStatement(String name) {
+		super(name);
+	}
+
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("for ").append(paramName).append(" in ").append(expression).append(" do\n");
+		sb.append(block);
+		return sb.toString();
+	}
+
+	public String getParamName() {
+		return paramName;
+	}
+
+	public EnhancedForStatement paramName(String paramName) {
+		this.paramName = paramName;
+		return this;
+	}
+
+	public String getExpression() {
+		return expression;
+	}
+
+	public EnhancedForStatement expression(String expression) {
+		this.expression = expression;
+		return this;
+	}
+
+}
